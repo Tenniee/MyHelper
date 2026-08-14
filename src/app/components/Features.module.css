@@ -1,0 +1,215 @@
+.section {
+  width: 100%;
+  background: #ffffff;
+  padding: 96px 0;
+}
+ 
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 120px;
+}
+ 
+.heading {
+  margin: 0 0 40px 0;
+  text-align: left;
+  font-family: var(--font-heading, inherit);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -1.2px;
+  color: #111827;
+}
+ 
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Card                                                        */
+/* ---------------------------------------------------------- */
+ 
+.card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 282px;
+  border-radius: 24px;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0px 1px 2px 0px #0000000d;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  overflow: hidden;
+}
+ 
+.left {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+}
+ 
+.leftWipe {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 32px 24px 32px 0;
+}
+ 
+.iconCircle {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  border-radius: 9999px;
+  background: #ff6b00;
+  border: 3px solid #ffffff;
+  box-shadow: 0px 2px 8px 0px #ff6b0033;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.leftText {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+ 
+.badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 4px 16px;
+  border-radius: 9999px;
+  background: #fff7ed;
+  color: #ff6b00;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+ 
+.paragraph {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.6;
+}
+ 
+.line {
+  display: block;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Right highlight box                                         */
+/* ---------------------------------------------------------- */
+ 
+.rightBox {
+  flex: 0 0 588px;
+  width: 588px;
+  min-height: 280px;
+  align-self: center;
+  border-radius: 24px;
+  background: #fffaf7;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+ 
+.eyebrow {
+  color: #1f1f1f;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 29.25px;
+}
+ 
+.highlight {
+  color: #1f1f1f;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Responsive                                                  */
+/* ---------------------------------------------------------- */
+ 
+@media (max-width: 1280px) {
+  .inner {
+    padding: 0 60px;
+  }
+  .rightBox {
+    flex-basis: 420px;
+    width: 420px;
+  }
+}
+ 
+@media (max-width: 1024px) {
+  .card {
+    flex-direction: column;
+    min-height: 0;
+  }
+  .left {
+    padding: 32px 32px 0 32px;
+  }
+  .leftWipe {
+    padding: 0 0 24px 0;
+  }
+  .rightBox {
+    flex-basis: auto;
+    width: 100%;
+    align-self: stretch;
+    border-radius: 0 0 24px 24px;
+  }
+}
+ 
+@media (max-width: 640px) {
+  .section {
+    padding: 64px 0;
+  }
+  .inner {
+    padding: 0 20px;
+  }
+  .heading {
+    font-size: 32px;
+    line-height: 34px;
+    letter-spacing: -0.8px;
+    margin-bottom: 28px;
+  }
+  .list {
+    gap: 16px;
+  }
+  .left {
+    padding: 24px 20px 0 20px;
+  }
+  .leftWipe {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .iconCircle {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+  }
+  .rightBox {
+    padding: 28px 20px;
+    gap: 12px;
+  }
+  .eyebrow {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .highlight {
+    font-size: 22px;
+    line-height: 26px;
+  }
+}

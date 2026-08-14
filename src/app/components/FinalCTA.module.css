@@ -1,0 +1,229 @@
+.section {
+  width: 100%;
+  background: #ffffff;
+  padding: 96px 0;
+  overflow-x: hidden;
+}
+
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 6vw, 120px);
+}
+
+/* ---------------------------------------------------------- */
+/*  Top: heading + right text                                   */
+/* ---------------------------------------------------------- */
+
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 72px;
+  flex-wrap: wrap;
+}
+
+.headingRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.heading {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-heading, inherit);
+  font-weight: 800;
+  font-size: clamp(34px, 4.8vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -1.4px;
+  color: #111827;
+}
+
+.headingLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.28em;
+}
+
+.word {
+  display: inline-block;
+}
+
+.brandWord {
+  color: #ff6b00;
+}
+
+.iconStack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.iconCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightCol {
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding-top: 8px;
+}
+
+.rightText {
+  margin: 0;
+  color: #4b5563;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px 14px 24px;
+  border-radius: 9999px;
+  background: #ff6b00;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0px 8px 20px 0px #ff6b0040;
+  transition: box-shadow 0.2s ease;
+}
+
+.ctaButton:hover {
+  box-shadow: 0px 12px 26px 0px #ff6b0055;
+}
+
+.ctaIcon {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 9999px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------------------------------------------------------- */
+/*  Gallery                                                       */
+/* ---------------------------------------------------------- */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, minmax(90px, 1fr));
+  gap: 20px;
+  height: 340px;
+}
+
+.galleryImage {
+  border-radius: 24px;
+  width: 100%;
+  height: 100%;
+}
+
+.stackCell {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+}
+
+.stackCell .galleryImage {
+  min-height: 0;
+}
+
+.badgeCard {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px 10px 10px;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0px 4px 14px 0px #0000000f;
+  width: max-content;
+  flex-shrink: 0;
+}
+
+.badgeIcon {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 9999px;
+  background: #ff6b00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badgeText {
+  color: #111827;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------- */
+/*  Responsive                                                    */
+/* ---------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .topRow {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .rightCol {
+    max-width: 100%;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, minmax(160px, 1fr));
+    height: auto;
+  }
+  .gallery > * {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+  .stackCell {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .heading {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+  .headingRow {
+    gap: 12px;
+  }
+  .iconCircle {
+    width: 34px;
+    height: 34px;
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

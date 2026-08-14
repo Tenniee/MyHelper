@@ -1,0 +1,376 @@
+.section {
+  width: 100%;
+  background: #ffffff;
+  padding: 96px 0;
+  overflow-x: hidden;
+}
+ 
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 6vw, 120px);
+}
+ 
+.heading {
+  margin: 0 0 12px 0;
+  text-align: center;
+  font-family: var(--font-heading, inherit);
+  font-weight: 800;
+  font-size: clamp(32px, 4.5vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: #0f172a;
+}
+ 
+.subheading {
+  margin: 0 auto 88px auto;
+  max-width: 480px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 17px;
+  line-height: 1.6;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Steps                                                        */
+/* ---------------------------------------------------------- */
+ 
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+ 
+.stepRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+}
+ 
+.stepRowReversed {
+  flex-direction: row-reverse;
+}
+ 
+.stepContent {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+ 
+.numberCircle {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 9999px;
+  background: #ff6b00;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 12px 0px #ff6b0040;
+}
+ 
+.stepTitle {
+  margin: 0;
+  font-family: var(--font-heading, inherit);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.2;
+  color: #111827;
+}
+ 
+.stepDesc {
+  margin: 0;
+  max-width: 380px;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.6;
+}
+ 
+.stepCardWrap {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+}
+ 
+.stepRow .stepCardWrap {
+  justify-content: flex-start;
+}
+ 
+.stepRowReversed .stepCardWrap {
+  justify-content: flex-end;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Preview cards (product mockup previews)                     */
+/* ---------------------------------------------------------- */
+ 
+.previewCard {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 24px;
+  background: #fafafa;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0px 8px 24px 0px #0000000a;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+ 
+.previewTitle {
+  margin: 0;
+  font-weight: 700;
+  font-size: 16px;
+  color: #111827;
+}
+ 
+/* Account created */
+ 
+.iconCircleGreen {
+  width: 56px;
+  height: 56px;
+  border-radius: 9999px;
+  background: #dcfce7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.skeletonBar {
+  height: 6px;
+  border-radius: 9999px;
+  background: #f3f4f6;
+}
+ 
+/* Connecting inbox */
+ 
+.iconCircleOrangeWrap {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.iconCircleOrange {
+  position: relative;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  border-radius: 9999px;
+  background: #ff6b00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.pulseRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #ff6b00;
+  opacity: 0.5;
+  animation: pulseRing 2s ease-out infinite;
+}
+ 
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+ 
+/* Invites sent */
+ 
+.avatarRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+}
+ 
+.avatarStack {
+  display: flex;
+}
+ 
+.avatarCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  border: 2px solid #fafafa;
+  margin-left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.avatarCircle:first-child {
+  margin-left: 0;
+}
+ 
+.avatarMore {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.invitesPill {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: #f0fdf4;
+  color: #15803d;
+  font-size: 14px;
+  font-weight: 600;
+}
+ 
+/* Chat satisfaction */
+ 
+.bubbleRowRight {
+  align-self: flex-end;
+}
+ 
+.bubbleRowLeft {
+  align-self: flex-start;
+}
+ 
+.bubbleOrange {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 16px 16px 4px 16px;
+  background: #ff6b00;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+}
+ 
+.bubbleGray {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 16px 16px 16px 4px;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 500;
+}
+ 
+.satisfactionRow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  margin-top: 4px;
+  border-top: 1px solid #f3f4f6;
+}
+ 
+.satisfactionLabel {
+  color: #6b7280;
+  font-size: 13px;
+}
+ 
+.satisfactionScore {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #16a34a;
+  font-size: 13px;
+  font-weight: 700;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  CTA                                                          */
+/* ---------------------------------------------------------- */
+ 
+.ctaButton {
+  display: flex;
+  width: max-content;
+  margin: 96px auto 0 auto;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 36px;
+  border-radius: 9999px;
+  background: #ff6b00;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0px 10px 24px 0px #ff6b0040;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+ 
+.ctaButton:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: #e85f00;
+  box-shadow: 0px 14px 30px 0px #ff6b0055;
+}
+ 
+.ctaButton:active {
+  transform: translateY(0) scale(0.98);
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Responsive                                                  */
+/* ---------------------------------------------------------- */
+ 
+@media (max-width: 900px) {
+  .stepRow,
+  .stepRowReversed {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .stepCardWrap,
+  .stepRow .stepCardWrap,
+  .stepRowReversed .stepCardWrap {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .previewCard {
+    max-width: 100%;
+  }
+  .stepsList {
+    gap: 64px;
+  }
+  .subheading {
+    margin-bottom: 56px;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .section {
+    padding: 64px 0;
+  }
+  .stepTitle {
+    font-size: 22px;
+  }
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+    margin-top: 64px;
+  }
+}

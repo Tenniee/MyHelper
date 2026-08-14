@@ -1,0 +1,477 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #ffffff;
+}
+ 
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 120px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Text column                                                */
+/* ---------------------------------------------------------- */
+ 
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 592px;
+  max-width: 672px;
+  flex-shrink: 0;
+  margin-top: 56px;
+}
+ 
+.heading {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-heading, inherit);
+  font-weight: 800;
+  font-size: clamp(40px, 4.2vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+ 
+.headingLine {
+  display: inline-block;
+  color: #111827;
+}
+ 
+.headingLineMuted {
+  color: #9ca3af;
+}
+ 
+.subtext {
+  margin: 0;
+  max-width: 480px;
+  color: #6b7280;
+  font-size: 17px;
+  line-height: 1.6;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Buttons                                                     */
+/* ---------------------------------------------------------- */
+ 
+.buttonsRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0 40px 0;
+  flex-wrap: wrap;
+}
+ 
+.ctaButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 46px;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  background: #ff6b00;
+  box-shadow: 0px 8px 20px 0px #ff6b0040;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+ 
+.ctaButton:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0px 12px 26px 0px #ff6b0055;
+}
+ 
+.ctaIcon {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 9999px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.ctaLabel {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+}
+ 
+.secondaryButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+ 
+.secondaryButton:hover {
+  transform: translateY(-2px);
+  border-color: #d1d5db;
+  background: #f9fafb;
+}
+ 
+.secondaryLabel {
+  color: #111827;
+  font-weight: 600;
+  font-size: 14px;
+}
+ 
+.secondaryIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Stat pills                                                  */
+/* ---------------------------------------------------------- */
+ 
+.statsRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+ 
+.statPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0px 1px 2px 0px #0000000d;
+  white-space: nowrap;
+}
+ 
+.statDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+ 
+.statText {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Icon stack                                                  */
+/* ---------------------------------------------------------- */
+ 
+.iconStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 48px;
+  flex-shrink: 0;
+  /* Vertically starts where the two-line header ends, not the full block */
+  margin-top: clamp(120px, 12vw, 160px);
+  transform-origin: center top;
+}
+ 
+.iconCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  background: #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+ 
+.iconCircle:hover {
+  transform: scale(1.08);
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Scrolling image rows                                        */
+/* ---------------------------------------------------------- */
+ 
+.imagesWrap {
+  flex: 1;
+  min-width: 240px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  overflow: hidden;
+  /* fade the top/bottom edges so the loop point is invisible */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+}
+ 
+.imageColumn {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+ 
+/* offsets the right column so cards interlock brick-style with the left */
+.imageColumnOffset {
+  transform: translateY(128px);
+}
+ 
+.imageTrack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  will-change: transform;
+}
+ 
+.imageCard {
+  position: relative;
+  width: 200px;
+  height: 256px;
+  border-radius: 24px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+ 
+.imageCardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}
+ 
+.imageCardFooter {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+}
+ 
+/* voice / help pill (light, blurred glass) */
+.pillBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  height: 40px;
+  border-radius: 9999px;
+  border: 1px solid #ffffff;
+  background: #ffffff80;
+  backdrop-filter: blur(10px);
+  padding: 6px 12px;
+  gap: 6px;
+  box-sizing: border-box;
+}
+ 
+.pillBarPlaceholder {
+  color: #ffffffcc;
+  font-size: 11px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+ 
+.pillBarText {
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+ 
+.pillBarIcon {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 9999px;
+  background: #dcfce7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+/* "ask me a question" dark pill */
+.askBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  height: 44px;
+  border-radius: 9999px;
+  background: #111827;
+  padding: 6px 6px 6px 14px;
+  gap: 8px;
+  box-sizing: border-box;
+}
+ 
+.askBarText {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+ 
+.askBarIcon {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 9999px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Responsive                                                  */
+/* ---------------------------------------------------------- */
+ 
+@media (max-width: 1280px) {
+  .inner {
+    padding: 0 60px;
+    gap: 32px;
+  }
+  .textCol {
+    width: 520px;
+  }
+}
+ 
+@media (max-width: 1024px) {
+  .inner {
+    flex-direction: column;
+    justify-content: center;
+    padding: 140px 32px 60px;
+    gap: 40px;
+    min-height: auto;
+  }
+  .textCol {
+    width: 100%;
+    max-width: 640px;
+  }
+  .iconStack {
+    flex-direction: row;
+    width: auto;
+    margin-top: 0;
+  }
+  .imagesWrap {
+    width: 100%;
+    height: 320px;
+  }
+}
+ 
+@media (max-width: 560px) {
+  .buttonsRow {
+    flex-direction: column;
+    align-items: stretch;
+    padding-bottom: 24px;
+  }
+  .ctaButton,
+  .secondaryButton {
+    width: 100%;
+  }
+}
+ 
+/* Small phones: trim the design down rather than cram it in */
+@media (max-width: 480px) {
+  .inner {
+    padding: 120px 20px 48px;
+  }
+  .textCol {
+    margin-top: 0;
+    gap: 18px;
+  }
+  .heading {
+    font-size: clamp(30px, 9vw, 38px);
+  }
+  .subtext {
+    font-size: 14.5px;
+  }
+  .statsRow {
+    gap: 8px;
+  }
+  .statPill {
+    height: 28px;
+    padding: 5px 12px;
+  }
+  .statText {
+    font-size: 11px;
+  }
+ 
+  /* Icon stack adds visual flair but isn't essential content */
+  .iconStack {
+    display: none;
+  }
+ 
+  .imagesWrap {
+    height: 220px;
+    gap: 16px;
+  }
+  .imageCard {
+    width: 140px;
+    height: 180px;
+    border-radius: 18px;
+  }
+  .imageColumnOffset {
+    transform: translateY(90px);
+  }
+  .imageTrack {
+    gap: 16px;
+  }
+  .pillBar,
+  .askBar {
+    height: 34px;
+    padding: 5px 10px;
+  }
+  .pillBarIcon,
+  .askBarIcon {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+  }
+}

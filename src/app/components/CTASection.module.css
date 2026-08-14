@@ -1,0 +1,226 @@
+.section {
+  width: 100%;
+  overflow-x: hidden;
+  background: #ffffff;
+  padding: 96px 0;
+}
+ 
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 6vw, 120px);
+  box-sizing: border-box;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Card                                                        */
+/* ---------------------------------------------------------- */
+ 
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: clamp(28px, 6vw, 80px);
+  /* Very low-opacity tint so the blurred blobs still show through,
+     rather than the solid #F8FAFC Figma lists (which would hide them) */
+  background: rgba(248, 250, 252, 0.55);
+}
+ 
+.blob {
+  position: absolute;
+  width: 384px;
+  height: 384px;
+  border-radius: 9999px;
+  filter: blur(64px);
+  z-index: 0;
+  pointer-events: none;
+}
+ 
+.blobTopRight {
+  top: -140px;
+  right: -140px;
+  background: #ffedd5;
+}
+ 
+.blobBottomLeft {
+  bottom: -140px;
+  left: -140px;
+  background: #dbeafe;
+}
+ 
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 48px;
+  width: 100%;
+  max-width: 100%;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Left: heading                                               */
+/* ---------------------------------------------------------- */
+ 
+.textCol {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+}
+ 
+.heading {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-heading, inherit);
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 48px;
+  letter-spacing: -1.2px;
+  color: #0f172a;
+}
+ 
+.headingLine {
+  display: inline-block;
+}
+ 
+.brand {
+  color: #ff6b00;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Right: description + CTA                                    */
+/* ---------------------------------------------------------- */
+ 
+.rightCol {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  padding-left: 48px;
+}
+ 
+.divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  background: #e2e8f0;
+  transform-origin: top;
+}
+ 
+.rightInner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+ 
+.paragraph {
+  margin: 0;
+  color: #475569;
+  font-size: 17px;
+  line-height: 1.6;
+}
+ 
+.ctaButton {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  background: #0f172a;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+ 
+.ctaButton:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: #1e293b;
+  box-shadow: 0px 10px 24px 0px #0f172a40;
+}
+ 
+.ctaButton:active {
+  transform: translateY(0) scale(0.98);
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Responsive                                                  */
+/* ---------------------------------------------------------- */
+ 
+@media (max-width: 1280px) {
+  .card {
+    padding: clamp(28px, 6vw, 64px);
+  }
+}
+ 
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .rightCol {
+    padding-left: 0;
+    padding-top: 32px;
+  }
+  .divider {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+    transform-origin: left;
+  }
+  .heading {
+    font-size: 40px;
+    line-height: 42px;
+  }
+}
+ 
+@media (max-width: 640px) {
+  .section {
+    padding: 64px 0;
+  }
+  .card {
+    border-radius: 20px;
+  }
+  .blob {
+    width: 240px;
+    height: 240px;
+    filter: blur(48px);
+  }
+  .blobTopRight {
+    top: -80px;
+    right: -80px;
+  }
+  .blobBottomLeft {
+    bottom: -80px;
+    left: -80px;
+  }
+  .heading {
+    font-size: 30px;
+    line-height: 32px;
+    letter-spacing: -0.8px;
+  }
+  .paragraph {
+    font-size: 15px;
+  }
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+}
+ 

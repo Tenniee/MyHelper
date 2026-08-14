@@ -1,0 +1,316 @@
+.section {
+  width: 100%;
+  background: #ffffff;
+  padding: 96px 0;
+  overflow-x: hidden;
+}
+ 
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 6vw, 120px);
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Top bar                                                      */
+/* ---------------------------------------------------------- */
+ 
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+ 
+.reviewsPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+ 
+.heading {
+  flex: 1;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3em;
+  text-align: center;
+  font-family: var(--font-heading, inherit);
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: -1px;
+  color: #0f172a;
+}
+ 
+.headingWord {
+  display: inline-block;
+}
+ 
+.reviewAbout {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #374151;
+  font-size: 14px;
+  white-space: nowrap;
+}
+ 
+.brandBadge {
+  display: inline-flex;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: #ff6b00;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Card                                                         */
+/* ---------------------------------------------------------- */
+ 
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 32px;
+  background: #f8fafc;
+  padding: clamp(28px, 5vw, 64px);
+  overflow: hidden;
+}
+ 
+.dots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+ 
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  border: 1.5px solid #cbd5e1;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+ 
+.dot:hover {
+  border-color: #94a3b8;
+  transform: scale(1.15);
+}
+ 
+.dotActive {
+  background: #0f172a;
+  border-color: #0f172a;
+  transform: scale(1.2);
+}
+ 
+.slide {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Left: quote                                                  */
+/* ---------------------------------------------------------- */
+ 
+.leftCol {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 22px;
+}
+ 
+.storyBadge {
+  display: inline-flex;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 500;
+}
+ 
+.quote {
+  margin: 0;
+  color: #111827;
+  font-weight: 600;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.35;
+  max-width: 480px;
+}
+ 
+.name {
+  margin: 0;
+  color: #111827;
+  font-weight: 700;
+  font-size: 16px;
+}
+ 
+.role {
+  margin: 4px 0 0 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Right: image                                                 */
+/* ---------------------------------------------------------- */
+ 
+.imageWrap {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 5 / 4;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+ 
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+ 
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+}
+ 
+.heartBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 12px 0px #00000022;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+ 
+.heartBadge:hover {
+  transform: scale(1.1);
+}
+ 
+.connectBadge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 8px 8px 18px;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #111827;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0px 4px 12px 0px #00000022;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+ 
+.connectBadge:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0px 8px 18px 0px #00000030;
+}
+ 
+.connectIcon {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 9999px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Responsive                                                   */
+/* ---------------------------------------------------------- */
+ 
+@media (max-width: 1024px) {
+  .slide {
+    flex-direction: column-reverse;
+    gap: 32px;
+  }
+  .leftCol {
+    align-items: flex-start;
+  }
+  .quote {
+    max-width: 100%;
+  }
+  .imageWrap {
+    max-width: 100%;
+  }
+}
+ 
+@media (max-width: 768px) {
+  .topBar {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  .heading {
+    order: -1;
+  }
+  .card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .dots {
+    flex-direction: row;
+    align-self: center;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .section {
+    padding: 64px 0;
+  }
+  .card {
+    border-radius: 24px;
+  }
+  .quote {
+    font-size: 19px;
+  }
+  .connectLabel {
+    display: none;
+  }
+}
+ 

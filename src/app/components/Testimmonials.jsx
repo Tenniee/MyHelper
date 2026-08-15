@@ -136,7 +136,7 @@ export default function Testimonials() {
   const active = TESTIMONIALS[activeIndex];
  
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="reviews">
       <div className={styles.inner}>
         {/* ---------- Top bar ---------- */}
         <motion.div

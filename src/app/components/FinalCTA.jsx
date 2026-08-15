@@ -5,8 +5,8 @@ import { Globe, Video, ArrowRight, User } from "lucide-react";
 import styles from "./FinalCTA.module.css";
 
 import LeftSuportAgent from "../../assets/Woman-on-video-callBottom.webp";
-//import SecondTypingOnKeyboard from '';
-//import ThirdSupportAgent from '';
+import SecondTypingOnKeyboard from '../../assets/Typing-on-keyboard.webp';
+import ThirdSupportAgent from '../../assets/Woman-laughing.webp';;
 import FourthBottomWomanWithHeadset from '../../assets/Woman-with-headset.webp';
 import FourthTopKeyboard from '../../assets/Keyboard.webp';
  
@@ -47,8 +47,8 @@ const HEADING_LINES = [
 // tight against the image instead of floating in its own grid row.
 const GALLERY = [
   { id: "g1", type: "image", gradient: LeftSuportAgent, gridColumn: "1", gridRow: "1 / 3" },
-  { id: "g2", type: "stack", gridColumn: "2", gridRow: "1 / 3", gradient: "linear-gradient(160deg,#A7F3D0,#6EE7B7)" },
-  { id: "g3", type: "image", gradient: "linear-gradient(160deg,#93C5FD,#60A5FA)", gridColumn: "3", gridRow: "1 / 3" },
+  { id: "g2", type: "stack", gridColumn: "2", gridRow: "1 / 3", gradient: SecondTypingOnKeyboard },
+  { id: "g3", type: "image", gradient: ThirdSupportAgent, gridColumn: "3", gridRow: "1 / 3" },
   { id: "g4a", type: "image", gradient: FourthTopKeyboard, gridColumn: "4", gridRow: "1" },
   { id: "g4b", type: "image", gradient: FourthBottomWomanWithHeadset, gridColumn: "4", gridRow: "2" },
 ];

@@ -1,9 +1,11 @@
 "use client";
  
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./AuthLayout.module.css";
+import WomanOnVideoCall from '../../assets/Woman-on-videoTaller.webp';
  
 /* -------------------------------------------------------------------- */
 /*  Testimonials — same agent across all 3, quotes rotate every 60s.    */
@@ -110,8 +112,8 @@ export default function AuthLayout({ children, footerNote }) {
  
       {/* ---------- Right: photo + rotating testimonial ---------- */}
       <div className={styles.imagePanel}>
-        <img
-          src="/auth/auth-agent.jpg"
+        <Image
+          src={WomanOnVideoCall}
           alt="MyHelpr customer support agent"
           className={styles.image}
         />

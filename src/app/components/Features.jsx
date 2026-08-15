@@ -163,7 +163,7 @@ function FeatureRow({ feature }) {
  
 export default function Features() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="features">
       <div className={styles.inner}>
         <h2 className={styles.heading}>Built to Handle Every Ticket</h2>
  

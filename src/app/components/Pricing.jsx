@@ -145,7 +145,7 @@ const circleVariants = {
 
 export default function Pricing() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="pricing">
       <div className={styles.inner}>
         <div className={styles.topRow}>
           <motion.span

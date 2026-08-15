@@ -3,6 +3,8 @@ import ColumnPhoto1 from "../../assets/Support-Agent.webp";
 import ColumnPhoto2 from "../../assets/Support-Agent2.webp";
 import ColumnPhoto3 from "../../assets/Platform-Dashboard.webp"; 
 import ColumnPhoto4 from "../../assets/User-Typing3.webp";
+import ColumnPhoto5 from "../../assets/User-Typing2.webp";
+import ColumnPhoto6 from "../../assets/User-Typing.webp";
 
 import { useEffect, useRef } from "react";
 import {
@@ -59,6 +61,8 @@ const LEFT_COLUMN_CARDS = [
   { id: "l2", type: "help", gradient: ColumnPhoto2 },
   { id: "l3", type: "ask", gradient: ColumnPhoto3 },
   { id: "l4", type: "voice", gradient: ColumnPhoto4 },
+  { id: "l5", type: "voice", gradient: ColumnPhoto5 },
+  { id: "l6", type: "voice", gradient: ColumnPhoto6 },
 ];
  
 const RIGHT_COLUMN_CARDS = [
@@ -66,6 +70,8 @@ const RIGHT_COLUMN_CARDS = [
   { id: "r2", type: "ask", gradient: ColumnPhoto3 },
   { id: "r3", type: "voice", gradient: ColumnPhoto4 },
   { id: "r4", type: "help", gradient: ColumnPhoto1 },
+  { id: "r5", type: "help", gradient: ColumnPhoto6 },
+  { id: "r6", type: "help", gradient: ColumnPhoto5 },
 ];
  
 // Mobile gets a single horizontal strip instead of two vertical columns —

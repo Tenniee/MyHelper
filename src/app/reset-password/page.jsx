@@ -12,8 +12,8 @@ import {
   X,
   ShieldCheck,
 } from "lucide-react";
-import AuthLayout from "./AuthLayout";
-import styles from "./AuthForm.module.css";
+import AuthLayout from "../components/AuthLayout";
+import styles from "../components/AuthForm.module.css";
  
 const fieldVariants = {
   hidden: { opacity: 0, y: 16 },

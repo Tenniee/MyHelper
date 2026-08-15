@@ -195,14 +195,137 @@
   box-shadow: 0px 4px 10px 0px #ff6b0033;
 }
  
+/* ---------- Hamburger (mobile only) ---------- */
+ 
+.hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 9999px;
+  background: transparent;
+  color: #111827;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+ 
+.hamburger:hover {
+  background: #f3f4f6;
+}
+ 
+.hamburgerIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+/* ---------- Mobile dropdown ---------- */
+ 
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0px 12px 24px 0px #00000014;
+}
+ 
+.mobileLinkList {
+  list-style: none;
+  margin: 0;
+  padding: 12px 24px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+ 
+.mobileLink {
+  display: block;
+  padding: 12px 10px;
+  border-radius: 10px;
+  color: #374151;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+ 
+.mobileLink:hover {
+  background: #f9fafb;
+  color: #111827;
+}
+ 
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 24px 24px;
+  margin-top: 4px;
+  border-top: 1px solid #f3f4f6;
+}
+ 
+.mobileSignIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 9999px;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  font-weight: 600;
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+ 
+.mobileSignIn:hover {
+  background: #f9fafb;
+}
+ 
+.mobileCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 9999px;
+  background: #ff6b00;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14.5px;
+  text-decoration: none;
+  box-shadow: 0px 4px 12px 0px #ff6b0033;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+ 
+.mobileCta:hover {
+  transform: translateY(-1px);
+  background: #e85f00;
+}
+ 
 /* ---------- Responsive ---------- */
  
 @media (max-width: 1100px) {
   .inner {
+    display: flex;
+    justify-content: space-between;
     padding: 0 32px;
   }
   .pill {
     display: none;
+  }
+  .signIn {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .actions {
+    min-width: auto;
+    gap: 12px;
   }
 }
  
@@ -212,9 +335,6 @@
   }
   .logoText {
     font-size: 17px;
-  }
-  .signIn {
-    display: none;
   }
 }
  
@@ -239,107 +359,3 @@
   }
 }
  
-/* ---------- Hamburger button ---------- */
- 
-.hamburger {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background 0.2s ease;
-}
- 
-.hamburger:hover {
-  background: #f3f4f6;
-}
- 
-.hamburgerBar {
-  position: absolute;
-  width: 20px;
-  height: 2px;
-  background: #111827;
-  border-radius: 2px;
-}
- 
-@media (max-width: 1100px) {
-  .hamburger {
-    display: flex;
-  }
-}
- 
-/* ---------- Mobile menu panel ---------- */
- 
-.mobilePanel {
-  position: fixed;
-  top: 82px;
-  left: 0;
-  right: 0;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  overflow: hidden;
-  z-index: 49;
-}
- 
-.mobilePanelInner {
-  display: flex;
-  flex-direction: column;
-  padding: 20px 24px 28px;
-  gap: 4px;
-}
- 
-.mobileLink {
-  color: #374151;
-  font-size: 17px;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 12px 4px;
-  border-bottom: 1px solid #f3f4f6;
-}
- 
-.mobileLink:last-of-type {
-  border-bottom: none;
-}
- 
-.mobileActions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 16px;
-}
- 
-.mobileSignIn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  color: #4b5563;
-  font-weight: 600;
-  font-size: 15px;
-  text-decoration: none;
-  border: 1px solid #e5e7eb;
-  border-radius: 9999px;
-}
- 
-.mobileCta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  border-radius: 9999px;
-  background: #ff6b00;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 15px;
-  text-decoration: none;
-}
- 
-@media (max-width: 400px) {
-  .mobilePanel {
-    top: 68px;
-  }
-}

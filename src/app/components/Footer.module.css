@@ -193,35 +193,73 @@
 /* ---------------------------------------------------------- */
  
 @media (max-width: 900px) {
+  .footer {
+    padding: 56px 0 28px;
+  }
   .topGrid {
     flex-direction: column;
-    gap: 40px;
+    gap: 32px;
+    margin-bottom: 32px;
   }
   .brandCol {
     max-width: 100%;
   }
+  .logo {
+    margin-bottom: 10px;
+  }
+  .tagline {
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
   .linkGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px 24px;
+    gap: 28px 20px;
+  }
+  .colTitle {
+    margin-bottom: 12px;
+  }
+  .linkList {
+    gap: 10px;
+  }
+  .divider {
+    margin-bottom: 16px;
   }
 }
  
 @media (max-width: 480px) {
   .footer {
-    padding: 64px 0 32px;
+    padding: 48px 0 24px;
   }
   .glow {
-    width: 280px;
-    height: 280px;
+    width: 220px;
+    height: 220px;
+  }
+  .logo {
+    font-size: 22px;
+  }
+  .socialIcon {
+    width: 36px;
+    height: 36px;
   }
   .linkGrid {
     grid-template-columns: 1fr 1fr;
-    gap: 28px 16px;
+    gap: 24px 16px;
+  }
+  .colTitle {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  .link {
+    font-size: 13.5px;
+  }
+  .linkList {
+    gap: 8px;
   }
   .bottomRow {
     flex-direction: column;
     align-items: flex-start;
-    gap: 6px;
+    gap: 4px;
+    font-size: 12px;
   }
 }
  

@@ -283,7 +283,7 @@ function StepRow({ step }) {
  
 export default function HowItWorks() {
   return (
-    <section className={styles.section} id="how-it-works">
+    <section className={styles.section}>
       <div className={styles.inner}>
         <motion.h2
           className={styles.heading}
@@ -318,10 +318,17 @@ export default function HowItWorks() {
           viewport={{ once: true, amount: 0.8 }}
           variants={ctaVariants}
         >
-          Start Your Free Trial Now
-          <ArrowRight size={18} strokeWidth={2.5} />
+          <span className={styles.ctaButtonLabel}>
+            Start Your Free Trial Now
+          </span>
+          <ArrowRight
+            size={18}
+            strokeWidth={2.5}
+            className={styles.ctaButtonIcon}
+          />
         </motion.a>
       </div>
     </section>
   );
 }
+ 

@@ -309,6 +309,9 @@
 .ctaButton {
   display: flex;
   width: max-content;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   margin: 96px auto 0 auto;
   align-items: center;
   gap: 10px;
@@ -321,6 +324,16 @@
   text-decoration: none;
   box-shadow: 0px 10px 24px 0px #ff6b0040;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+ 
+.ctaButtonLabel {
+  min-width: 0;
+  white-space: normal;
+  text-align: center;
+}
+ 
+.ctaButtonIcon {
+  flex-shrink: 0;
 }
  
 .ctaButton:hover {
@@ -370,7 +383,13 @@
   }
   .ctaButton {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
     justify-content: center;
+    padding: 16px 20px;
     margin-top: 64px;
+    font-size: 15px;
   }
 }
+ 

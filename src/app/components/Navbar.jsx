@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import styles from "./Navbar.module.css";
  
 const NAV_LINKS = ["Features", "How it works", "Reviews", "Pricing"];
@@ -63,33 +64,35 @@ const linkDropVariants = {
   },
 };
  
-// Mobile panel: height auto-animates open/closed. Framer can't animate to
-// "auto" directly on layout height reliably across browsers, so we animate
-// max-height instead -- generous ceiling, real height clips it.
-const panelVariants = {
-  hidden: { height: 0, opacity: 0 },
+// Mobile dropdown panel — height animates open/closed (Framer measures
+// "auto" automatically), children cascade in once it's open.
+const mobileMenuVariants = {
+  hidden: { opacity: 0, height: 0 },
   visible: {
-    height: "auto",
     opacity: 1,
-    transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+    height: "auto",
+    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
   },
   exit: {
-    height: 0,
     opacity: 0,
-    transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
+    height: 0,
+    transition: { duration: 0.25, ease: "easeInOut" },
   },
 };
  
 const mobileLinksContainerVariants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.05, delayChildren: 0.05 },
-  },
+  visible: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } },
+};
+ 
+const mobileItemVariants = {
+  hidden: { opacity: 0, x: -14 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.25 } },
 };
  
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
  
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
@@ -98,28 +101,23 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
  
-  // Lock body scroll while the mobile menu is open, and close it
-  // automatically if the viewport grows back past the breakpoint
-  // (e.g. rotating a tablet, or resizing a browser window).
+  // Close the mobile menu automatically if the viewport grows back past
+  // the breakpoint where the desktop nav takes over.
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
- 
     const onResize = () => {
-      if (window.innerWidth > 1100) setMobileOpen(false);
+      if (window.innerWidth > 1100) setMenuOpen(false);
     };
     window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
  
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("resize", onResize);
-    };
-  }, [mobileOpen]);
- 
-  const closeMenu = () => setMobileOpen(false);
+  const closeMenu = () => setMenuOpen(false);
  
   return (
     <header
-      className={`${styles.navbar} ${scrolled ? styles.scrolled : styles.atTop}`}
+      className={`${styles.navbar} ${
+        scrolled || menuOpen ? styles.scrolled : styles.atTop
+      }`}
     >
       <div className={styles.inner}>
         {/* Logo + wordmark */}
@@ -133,7 +131,7 @@ export default function Navbar() {
           <span className={styles.logoText}>My Helpr</span>
         </motion.div>
  
-        {/* Pill nav (desktop) */}
+        {/* Pill nav */}
         <motion.nav
           className={styles.pill}
           initial="hidden"
@@ -160,7 +158,7 @@ export default function Navbar() {
           </motion.ul>
         </motion.nav>
  
-        {/* Sign in / CTA (desktop) */}
+        {/* Sign in / CTA */}
         <motion.div
           className={styles.actions}
           initial="hidden"
@@ -177,73 +175,93 @@ export default function Navbar() {
               Start Free Trial
             </Link>
           </motion.div>
-        </motion.div>
  
-        {/* Hamburger (mobile only, via CSS media query) */}
-        <button
-          type="button"
-          className={styles.hamburger}
-          onClick={() => setMobileOpen((prev) => !prev)}
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-nav-panel"
-        >
-          <motion.span
-            className={styles.hamburgerBar}
-            animate={{
-              rotate: mobileOpen ? 45 : 0,
-              y: mobileOpen ? 0 : -5,
-            }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-          />
-          <motion.span
-            className={styles.hamburgerBar}
-            animate={{
-              rotate: mobileOpen ? -45 : 0,
-              y: mobileOpen ? 0 : 5,
-            }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-          />
-        </button>
+          <motion.button
+            type="button"
+            className={styles.hamburger}
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            variants={buttonPopVariants}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {menuOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className={styles.hamburgerIcon}
+                >
+                  <X size={22} strokeWidth={2} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className={styles.hamburgerIcon}
+                >
+                  <Menu size={22} strokeWidth={2} />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        </motion.div>
       </div>
  
-      {/* Mobile menu panel */}
+      {/* Mobile dropdown menu */}
       <AnimatePresence>
-        {mobileOpen && (
+        {menuOpen && (
           <motion.div
-            id="mobile-nav-panel"
-            className={styles.mobilePanel}
+            className={styles.mobileMenu}
             initial="hidden"
             animate="visible"
             exit="exit"
-            variants={panelVariants}
+            variants={mobileMenuVariants}
           >
-            <motion.div
-              className={styles.mobilePanelInner}
+            <motion.ul
+              className={styles.mobileLinkList}
               initial="hidden"
               animate="visible"
               variants={mobileLinksContainerVariants}
             >
               {NAV_LINKS.map((label) => (
-                <motion.a
-                  key={label}
-                  href={`#${label.toLowerCase().replace(/\s+/g, "-")}`}
-                  className={styles.mobileLink}
-                  variants={linkDropVariants}
-                  onClick={closeMenu}
-                >
-                  {label}
-                </motion.a>
+                <motion.li key={label} variants={mobileItemVariants}>
+                  <a
+                    href={`#${label.toLowerCase().replace(/\s+/g, "-")}`}
+                    className={styles.mobileLink}
+                    onClick={closeMenu}
+                  >
+                    {label}
+                  </a>
+                </motion.li>
               ))}
+            </motion.ul>
  
-              <motion.div className={styles.mobileActions} variants={linkDropVariants}>
-                <Link href="/login" className={styles.mobileSignIn} onClick={closeMenu}>
-                  Sign In
-                </Link>
-                <Link href="/register" className={styles.mobileCta} onClick={closeMenu}>
-                  Start Free Trial
-                </Link>
-              </motion.div>
+            <motion.div
+              className={styles.mobileActions}
+              initial="hidden"
+              animate="visible"
+              variants={mobileItemVariants}
+            >
+              <Link
+                href="/login"
+                className={styles.mobileSignIn}
+                onClick={closeMenu}
+              >
+                Sign In
+              </Link>
+              <Link
+                href="/register"
+                className={styles.mobileCta}
+                onClick={closeMenu}
+              >
+                Start Free Trial
+              </Link>
             </motion.div>
           </motion.div>
         )}
@@ -251,3 +269,4 @@ export default function Navbar() {
     </header>
   );
 }
+ 

@@ -81,7 +81,7 @@
   gap: 4px;
   font-family: var(--font-heading, inherit);
   font-weight: 800;
-  font-size: 42px;
+  font-size: 48px;
   line-height: 48px;
   letter-spacing: -1.2px;
   color: #0f172a;
@@ -134,6 +134,9 @@
   align-self: flex-start;
   align-items: center;
   gap: 8px;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   padding: 16px 32px;
   border-radius: 9999px;
   background: #0f172a;
@@ -143,6 +146,16 @@
   text-decoration: none;
   white-space: nowrap;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+ 
+.ctaButtonLabel {
+  min-width: 0;
+  white-space: normal;
+  text-align: center;
+}
+ 
+.ctaButtonIcon {
+  flex-shrink: 0;
 }
  
 .ctaButton:hover {
@@ -219,8 +232,13 @@
   }
   .ctaButton {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+    white-space: normal;
+    text-align: center;
     justify-content: center;
-    padding: 14px 24px;
+    padding: 14px 20px;
   }
 }
  

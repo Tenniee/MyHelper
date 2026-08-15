@@ -128,8 +128,14 @@ export default function CTASection() {
                   className={styles.ctaButton}
                   variants={buttonVariants}
                 >
-                  Start Your Free Trial
-                  <ArrowRight size={18} strokeWidth={2.5} />
+                  <span className={styles.ctaButtonLabel}>
+                    Start Your Free Trial
+                  </span>
+                  <ArrowRight
+                    size={18}
+                    strokeWidth={2.5}
+                    className={styles.ctaButtonIcon}
+                  />
                 </motion.a>
               </div>
             </div>

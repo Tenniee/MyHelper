@@ -13,7 +13,7 @@ const PLANS = [
     icon: Box,
     name: "Starter Version",
     subtitle: "Perfect for getting started",
-    price: "$0",
+    price: "₦0",
     features: [
       "1 team member",
       "50 tickets/month",
@@ -28,7 +28,7 @@ const PLANS = [
     icon: Star,
     name: "Pro Version",
     subtitle: "For growing teams",
-    price: "$59",
+    price: "₦50,000",
     features: [
       "5,000 tickets/month",
       "10 Team Members",
@@ -43,7 +43,7 @@ const PLANS = [
     icon: Building2,
     name: "Enterprise Version",
     subtitle: "For large Organization",
-    price: "$199",
+    price: "₦150,000",
     features: [
       "Unlimited tickets",
       "Unlimited team",

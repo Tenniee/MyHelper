@@ -1,0 +1,249 @@
+.card {
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0px 4px 16px 0px #0000000a;
+}
+ 
+.cardPlain {
+  width: 100%;
+  max-width: 420px;
+}
+ 
+.heading {
+  margin: 0 0 6px 0;
+  font-family: var(--font-heading, inherit);
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -0.6px;
+  color: #111827;
+}
+ 
+.subheading {
+  margin: 0 0 24px 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+ 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+ 
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ 
+.labelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+ 
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+ 
+.forgotLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ff6b00;
+  text-decoration: none;
+}
+ 
+.forgotLink:hover {
+  text-decoration: underline;
+}
+ 
+.hint {
+  font-size: 12.5px;
+  color: #9ca3af;
+}
+ 
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  font-size: 14px;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+ 
+.input:focus {
+  border-color: #ff6b00;
+  box-shadow: 0 0 0 3px #ff6b001f;
+}
+ 
+.inputFilled {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: #f3f4f6;
+  font-size: 14px;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+ 
+.inputFilled:focus {
+  background: #ffffff;
+  border-color: #ff6b00;
+  box-shadow: 0 0 0 3px #ff6b001f;
+}
+ 
+.passwordWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+ 
+.passwordWrap .input,
+.passwordWrap .inputFilled {
+  padding-right: 44px;
+}
+ 
+.eyeButton {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 4px;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+ 
+.eyeButton:hover {
+  color: #4b5563;
+}
+ 
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 9999px;
+  background: #ff6b00;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0px 8px 20px 0px #ff6b0040;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+ 
+.submitButton:hover {
+  transform: translateY(-2px) scale(1.01);
+  background: #e85f00;
+  box-shadow: 0px 12px 26px 0px #ff6b0055;
+}
+ 
+.submitButton:active {
+  transform: translateY(0) scale(0.99);
+}
+ 
+.helpRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+ 
+.helpLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #6b7280;
+  font-size: 13.5px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+ 
+.helpLink:hover {
+  color: #111827;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Register-only extras                                         */
+/* ---------------------------------------------------------- */
+ 
+.divider {
+  height: 1px;
+  background: #ffd7b5;
+  margin: 20px 0 18px;
+  transform-origin: left;
+}
+ 
+.trustRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+ 
+.trustItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  color: #4b5563;
+  font-size: 12.5px;
+}
+ 
+.switchAuth {
+  margin: 0;
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+}
+ 
+.switchAuthLink {
+  color: #ff6b00;
+  font-weight: 600;
+  text-decoration: none;
+}
+ 
+.switchAuthLink:hover {
+  text-decoration: underline;
+}
+ 
+/* ---------------------------------------------------------- */
+/*  Responsive                                                    */
+/* ---------------------------------------------------------- */
+ 
+@media (max-width: 480px) {
+  .card {
+    padding: 28px 24px;
+    border-radius: 16px;
+  }
+  .heading {
+    font-size: 26px;
+  }
+  .trustRow {
+    gap: 8px;
+  }
+  .trustItem {
+    font-size: 11px;
+  }
+}
+ 

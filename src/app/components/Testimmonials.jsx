@@ -1,9 +1,13 @@
 "use client";
  
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, Heart, ArrowUpRight } from "lucide-react";
 import styles from "./Testimonials.module.css";
+import TestimonialPhoto1 from "../../assets/Elara-Steele.webp";
+import TestimonialPhoto2 from "../../assets/Elara-Steele.webp";
+import TestimonialPhoto3 from "../../assets/Elara-Steele.webp";
  
 /* -------------------------------------------------------------------- */
 /*  Content — only testimonial #1 was given. #2 and #3 are placeholder  */
@@ -16,7 +20,7 @@ const TESTIMONIALS = [
       "Setup took 10 minutes. Within a week, we had our entire knowledge base migrated and team onboarded. Incredible experience",
     name: "Elara Steele",
     role: "Support Lead, CloudFlow",
-    image: "/testimonials/elara-steele.jpg",
+    image: TestimonialPhoto1,
     gradient: null,
   },
   {
@@ -218,7 +222,7 @@ export default function Testimonials() {
  
               <motion.div className={styles.imageWrap} variants={imageVariants}>
                 {active.image ? (
-                  <img
+                  <Image
                     src={active.image}
                     alt={active.name}
                     className={styles.image}

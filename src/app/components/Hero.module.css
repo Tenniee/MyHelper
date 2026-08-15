@@ -74,9 +74,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  height: 46px;
-  padding: 10px 24px;
+  gap: 8px;
+  height: 36px;
+  padding: 8px 30px;
   border-radius: 9999px;
   background: #ff6b00;
   box-shadow: 0px 8px 20px 0px #ff6b0040;
@@ -92,9 +92,9 @@
 }
  
 .ctaIcon {
-  width: 22px;
-  height: 22px;
-  min-width: 22px;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
   border-radius: 9999px;
   background: #ffffff;
   display: flex;
@@ -105,7 +105,7 @@
 .ctaLabel {
   color: #ffffff;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13.5px;
 }
  
 .secondaryButton {
@@ -113,8 +113,8 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 46px;
-  padding: 10px 24px;
+  height: 36px;
+  padding: 8px 30px;
   border-radius: 9999px;
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -133,7 +133,7 @@
 .secondaryLabel {
   color: #111827;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13.5px;
 }
  
 .secondaryIcon {
@@ -240,16 +240,17 @@
   );
 }
  
+/* Hidden on desktop — this is the mobile-only replacement, shown below 1024px */
+.mobileStrip {
+  display: none;
+}
+ 
 .imageColumn {
   height: 100%;
   overflow: hidden;
   display: flex;
-  align-items: center;
-}
- 
-/* offsets the right column so cards interlock brick-style with the left */
-.imageColumnOffset {
-  transform: translateY(128px);
+  align-items: flex-start;
+  justify-content: center;
 }
  
 .imageTrack {
@@ -400,8 +401,39 @@
     margin-top: 0;
   }
   .imagesWrap {
+    display: none;
+  }
+  .mobileStrip {
+    display: block;
     width: 100%;
-    height: 320px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 6%,
+      #000 94%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 6%,
+      #000 94%,
+      transparent 100%
+    );
+  }
+  .mobileTrack {
+    display: flex;
+    gap: 16px;
+    will-change: transform;
+  }
+  .mobileCard {
+    position: relative;
+    width: 150px;
+    height: 190px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    overflow: hidden;
   }
 }
  
@@ -448,20 +480,13 @@
     display: none;
   }
  
-  .imagesWrap {
-    height: 220px;
-    gap: 16px;
+  .mobileCard {
+    width: 120px;
+    height: 154px;
+    border-radius: 16px;
   }
-  .imageCard {
-    width: 140px;
-    height: 180px;
-    border-radius: 18px;
-  }
-  .imageColumnOffset {
-    transform: translateY(90px);
-  }
-  .imageTrack {
-    gap: 16px;
+  .mobileTrack {
+    gap: 12px;
   }
   .pillBar,
   .askBar {
@@ -475,3 +500,4 @@
     min-width: 22px;
   }
 }
+ 

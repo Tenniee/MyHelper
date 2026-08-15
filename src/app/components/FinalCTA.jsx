@@ -1,40 +1,67 @@
 "use client";
-
+ 
 import { motion } from "framer-motion";
 import { Globe, Video, ArrowRight, User } from "lucide-react";
 import styles from "./FinalCTA.module.css";
 
+import LeftSuportAgent from "../../assets/Woman-on-video-callBottom.webp";
+//import SecondTypingOnKeyboard from '';
+//import ThirdSupportAgent from '';
+import FourthBottomWomanWithHeadset from '../../assets/Woman-with-headset.webp';
+import FourthTopKeyboard from '../../assets/Keyboard.webp';
+ 
+/**
+ * Resolves a card's `gradient` field into a valid CSS `background` value,
+ * whether it's a CSS gradient string, a plain image URL string, or a
+ * Next.js static image import (which resolves to an OBJECT like
+ * { src, width, height }, not a string — swapping a gradient string for
+ * an imported image without this would silently do nothing, since
+ * `background: {object}` is invalid CSS and just gets dropped).
+ */
+function resolveCardBackground(source) {
+  if (!source) return undefined;
+  if (typeof source === "string") {
+    return source.includes("gradient(")
+      ? source
+      : `url(${source}) center / cover no-repeat`;
+  }
+  if (source.src) {
+    return `url(${source.src}) center / cover no-repeat`;
+  }
+  return undefined;
+}
+ 
 /* -------------------------------------------------------------------- */
 /*  Content                                                              */
 /* -------------------------------------------------------------------- */
-
+ 
 const HEADING_LINES = [
   { words: ["Ready", "to", "Transform"] },
   { words: ["Your", "Support?"] },
   { words: [{ text: "MyHelpr", brand: true }, "is", "here!"] },
 ];
-
+ 
 // Placeholder gallery — swap `gradient` for real background-image urls.
 // gridColumn/gridRow follow the bento layout from the design directly.
 // The badge + image below it are one "stack" item so the badge can sit
 // tight against the image instead of floating in its own grid row.
 const GALLERY = [
-  { id: "g1", type: "image", gradient: "linear-gradient(160deg,#FCD34D,#FB923C)", gridColumn: "1", gridRow: "1 / 3" },
+  { id: "g1", type: "image", gradient: LeftSuportAgent, gridColumn: "1", gridRow: "1 / 3" },
   { id: "g2", type: "stack", gridColumn: "2", gridRow: "1 / 3", gradient: "linear-gradient(160deg,#A7F3D0,#6EE7B7)" },
   { id: "g3", type: "image", gradient: "linear-gradient(160deg,#93C5FD,#60A5FA)", gridColumn: "3", gridRow: "1 / 3" },
-  { id: "g4a", type: "image", gradient: "linear-gradient(160deg,#FDA4AF,#FB7185)", gridColumn: "4", gridRow: "1" },
-  { id: "g4b", type: "image", gradient: "linear-gradient(160deg,#C4B5FD,#A78BFA)", gridColumn: "4", gridRow: "2" },
+  { id: "g4a", type: "image", gradient: FourthTopKeyboard, gridColumn: "4", gridRow: "1" },
+  { id: "g4b", type: "image", gradient: FourthBottomWomanWithHeadset, gridColumn: "4", gridRow: "2" },
 ];
-
+ 
 /* -------------------------------------------------------------------- */
 /*  Variants                                                             */
 /* -------------------------------------------------------------------- */
-
+ 
 const headingContainerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.09 } },
 };
-
+ 
 const wordVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -43,7 +70,7 @@ const wordVariants = {
     transition: { duration: 0.35, ease: "easeOut" },
   },
 };
-
+ 
 // Icons fade in while their rotation overshoots past 0 and springs back —
 // the "recoil" comes from spring physics rather than a hand-authored
 // keyframe list (more on this below the code).
@@ -58,7 +85,7 @@ const iconVariants = {
     },
   },
 };
-
+ 
 const rightTextVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -67,7 +94,7 @@ const rightTextVariants = {
     transition: { duration: 0.5, ease: "easeOut" },
   },
 };
-
+ 
 // Button: grows past full size, dips smaller than final, then settles —
 // a spring with low damping produces exactly this overshoot/undershoot.
 const buttonVariants = {
@@ -81,12 +108,12 @@ const buttonVariants = {
     },
   },
 };
-
+ 
 const galleryContainerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08 } },
 };
-
+ 
 const galleryItemVariants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -95,11 +122,11 @@ const galleryItemVariants = {
     transition: { duration: 0.5, ease: "easeOut" },
   },
 };
-
+ 
 /* -------------------------------------------------------------------- */
 /*  Section                                                              */
 /* -------------------------------------------------------------------- */
-
+ 
 export default function FinalCTA() {
   return (
     <section className={styles.section}>
@@ -134,7 +161,7 @@ export default function FinalCTA() {
                 </span>
               ))}
             </motion.h2>
-
+ 
             <div className={styles.iconStack}>
               <motion.span
                 className={styles.iconCircle}
@@ -157,7 +184,7 @@ export default function FinalCTA() {
               </motion.span>
             </div>
           </div>
-
+ 
           {/* ---------- Right: description + CTA ---------- */}
           <div className={styles.rightCol}>
             <motion.p
@@ -170,7 +197,7 @@ export default function FinalCTA() {
               Join thousands of businesses delivering exceptional customer
               experiences with MyHelpr.
             </motion.p>
-
+ 
             <motion.a
               href="/register"
               className={styles.ctaButton}
@@ -186,7 +213,7 @@ export default function FinalCTA() {
             </motion.a>
           </div>
         </div>
-
+ 
         {/* ---------- Image gallery ---------- */}
         <motion.div
           className={styles.gallery}
@@ -212,18 +239,18 @@ export default function FinalCTA() {
                   </div>
                   <div
                     className={styles.galleryImage}
-                    style={{ background: item.gradient, flex: 1 }}
+                    style={{ background: resolveCardBackground(item.gradient), flex: 1 }}
                   />
                 </motion.div>
               );
             }
-
+ 
             return (
               <motion.div
                 key={item.id}
                 className={styles.galleryImage}
                 style={{
-                  background: item.gradient,
+                  background: resolveCardBackground(item.gradient),
                   gridColumn: item.gridColumn,
                   gridRow: item.gridRow,
                 }}
@@ -236,3 +263,4 @@ export default function FinalCTA() {
     </section>
   );
 }
+ 

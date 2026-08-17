@@ -283,7 +283,7 @@ function StepRow({ step }) {
  
 export default function HowItWorks() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="how-it-works">
       <div className={styles.inner}>
         <motion.h2
           className={styles.heading}

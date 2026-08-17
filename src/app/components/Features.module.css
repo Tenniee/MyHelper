@@ -169,6 +169,8 @@
     flex-basis: auto;
     width: 100%;
     align-self: stretch;
+    align-items: flex-start;
+    text-align: left;
     min-height: 0;
     padding: 24px 32px;
     border-radius: 0 0 24px 24px;
